@@ -5,6 +5,6 @@ const SessionValidations = require('../validations/SessionValidations');
 
 const publicRoutes = new Router();
 
-publicRoutes.get('/session', SessionValidations.index ,SessionController.index);
+publicRoutes.get('/session',SessionValidations.index, SessionController.index);
 
 module.exports = publicRoutes;

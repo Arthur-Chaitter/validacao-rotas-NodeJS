@@ -1,21 +1,27 @@
 const express = require('express');
 
 const adminRoutes = require('./routes/adminRoutes');
+const publicRoutes = require("./routes/publicRoutes");
 
 
 class App{
     constructor(){
         this.server = express();
+        this.server.use(express.json());
 
-        this.middlewares();
         this.routes();
+        this.middlewares();
+        this.protectedRoutes();
     }
 
     middlewares(){
-        this.server.use(express.json());
+        
     }
 
     routes(){
+        this.server.use(publicRoutes);
+    }
+    protectedRoutes(){
         this.server.use(adminRoutes);
 
     }

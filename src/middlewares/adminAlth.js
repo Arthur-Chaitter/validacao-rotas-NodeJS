@@ -7,7 +7,7 @@ module.exports = async (req,res,next) =>{
     try{
         const authHeader = req.headers.authorization;
         if(!authHeader){
-            return res.status(401).json({error: 'Token não encontrado.'});
+            return res.status(401).json({error: 'Token do Admin não encontrado.'});
         }
 
         const [, token] = authHeader.split(' ');

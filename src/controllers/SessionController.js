@@ -11,8 +11,9 @@ class SessionController{
             return res.status(200).json({
                 token: jwt.sign({ tipo }, adminToken.secret, {
                  expiresIn: adminToken.expiresIn,
+                 
                 })
-            })
+            });
         }
 
         if(tipo = 'user'){
