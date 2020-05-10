@@ -2,6 +2,7 @@ const express = require('express');
 
 const adminRoutes = require('./routes/adminRoutes');
 const publicRoutes = require("./routes/publicRoutes");
+const userRoutes = require('./routes/userRoutes');
 
 
 class App{
@@ -10,12 +11,7 @@ class App{
         this.server.use(express.json());
 
         this.routes();
-        this.middlewares();
         this.protectedRoutes();
-    }
-
-    middlewares(){
-        
     }
 
     routes(){
@@ -23,6 +19,7 @@ class App{
     }
     protectedRoutes(){
         this.server.use(adminRoutes);
+        this.server.use(userRoutes);
 
     }
 }

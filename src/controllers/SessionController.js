@@ -7,20 +7,21 @@ class SessionController{
     index(req,res) {
         let { tipo } = req.body;
 
-        if(tipo = 'admin'){
+        if(tipo == "admin"){
             return res.status(200).json({
                 token: jwt.sign({ tipo }, adminToken.secret, {
                  expiresIn: adminToken.expiresIn,
-                 
-                })
+                }),
+                mensage: 'Token Admin'
             });
         }
 
-        if(tipo = 'user'){
+        if(tipo == "user"){
             return res.status(200).json({
                 token: jwt.sign({ tipo }, userToken.secret, {
                  expiresIn: userToken.expiresIn,
-                })
+                }),
+                mensage: 'Token user'
             })
         }
     }
